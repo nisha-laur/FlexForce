@@ -1,0 +1,7 @@
+.big-image{
+    position: absolute;
+    width: 49vw !important;
+    top: 25% !important;
+    left: 25% !important;
+}
+<img src="./public/image2.png" class="big-image" alt="Small Image">

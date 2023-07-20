@@ -1,0 +1,503 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./index.css" />
+    <title>Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Public Sans:wght@400;500;600&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+<style>
+    body {
+      background: #f8f8f8;
+      color: #2c3e50;
+      font-family: 'Source Sans Pro', sans-serif;
+    }
+    
+    .card-carousel-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 55px 0 40px;
+      color: #666a73;
+    }
+    
+    .card-carousel {
+      display: flex;
+      justify-content: center;
+      width: 1050px;
+    }
+    
+    .card-carousel--overflow-container {
+      overflow: hidden;
+    }
+    
+    .card-carousel--nav__left,
+    .card-carousel--nav__right {
+      display: inline-block;
+      width: 15px;
+      height: 15px;
+      padding: 10px;
+      box-sizing: border-box;
+      border-top: 2px solid #2196F3;
+    border-right: 2px solid #2196F3;
+      cursor: pointer;
+      margin: 0 20px;
+      transition: transform 150ms linear;
+    }
+    
+    .card-carousel--nav__left[disabled],
+    .card-carousel--nav__right[disabled] {
+      opacity: 0.2;
+      border-color: black;
+    }
+    
+    .card-carousel--nav__left {
+      transform: rotate(-135deg);
+    }
+    
+    .card-carousel--nav__right {
+      transform: rotate(45deg);
+    }
+    
+    .card-carousel-cards {
+      display: flex;
+      transition: transform 150ms ease-out;
+      transform: translatex(0px);
+    }
+    
+    .card-carousel--card {
+      margin: 0 10px;
+      cursor: pointer;
+      /* box-shadow: 0 4px 15px 0 rgba(40, 44, 53, .06), 0 2px 2px 0 rgba(40, 44, 53, .08); */
+      background-color: #f8f8f8;
+      border-radius: 4px;
+      z-index: 3;
+      margin-bottom: 2px;
+    }
+    
+    .card-carousel--card:first-child {
+      margin-left: 0;
+    }
+    
+    .card-carousel--card:last-child {
+      margin-right: 0;
+    }
+    
+    .card-carousel--card img {
+        width: 332px;
+        height: 70%;
+      vertical-align: bottom;
+      border-top-left-radius: 4px;
+      border-top-right-radius: 4px;
+      transition: opacity 150ms linear;
+      user-select: none;
+    }
+    
+    .card-carousel--card img:hover {
+      opacity: 0.5;
+    }
+    
+    .card-carousel--card--footer {
+      border-top: 0;
+      padding: 7px 15px;
+    }
+    
+    .card-carousel--card--footer p {
+      padding: 3px 0;
+      margin: 0;
+      text-align: center;
+    font-family: 'Poppins';
+      margin-bottom: 2px;
+      font-size: 19px;
+      font-weight: 500;
+      color: #2c3e50;
+      user-select: none;
+    }
+    
+    .card-carousel--card--footer p.tag {
+      font-size: 11px;
+      font-weight: 300;
+      padding: 4px;
+      background: rgba(40, 44, 53, .06);
+      display: inline-block;
+      position: relative;
+      margin-left: 40%;
+    font-family: 'Poppins';
+    font-size: 17px;
+    font-weight: 500;
+    color: #141415;
+    }
+    
+    .card-carousel--card--footer p.tag:before {
+      content: "";
+      float: left;
+      position: absolute;
+      top: 0;
+      left: -12px;
+      width: 0;
+      height: 0;
+      border-color: transparent rgba(40, 44, 53, .06) transparent transparent;
+      border-style: solid;
+      border-width: 8px 12px 12px 0;
+    }
+    
+    .card-carousel--card--footer p.tag.secondary {
+      margin-left: 0;
+      border-left: 1.45px dashed white;
+    }
+    
+    .card-carousel--card--footer p.tag.secondary:before {
+      display: none !important;
+    }
+    
+    .card-carousel--card--footer p.tag:after {
+      content: "";
+      position: absolute;
+      top: 8px;
+      left: -3px;
+      float: left;
+      width: 4px;
+      height: 4px;
+      border-radius: 2px;
+      background: white;
+      box-shadow: -0px -0px 0px #004977;
+    }
+    
+    h1 {
+      font-size: 3.6em;
+      font-weight: 100;
+      text-align: center;
+      margin-bottom: 0;
+      color: #42b883;
+    }
+    @media (max-width: 768px) {
+      .card-carousel {
+        width: 100%;
+      }
+      .card-carousel--nav__left,
+      .card-carousel--nav__right {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+    <div class="menubar">
+        <p class="discount">10% OFF ON FIRST ORDERS</p>
+    </div>
+    
+  
+
+    <div class="image-container">
+        <div class="nav">
+            <input type="checkbox" id="nav-check">
+            <div class="nav-header">
+              <div class="nav-title">
+              
+                  <div class="container">
+                    <a class="navbar-brand"  style="position: absolute;
+                    width: 10vw;
+                    top: 0px;
+                    left: 0px;" >
+                      <img src="./public/4.png" alt="Bootstrap" width="30" height="24">
+                    </a>
+                  </div>
+             
+              </div>
+            </div>
+            <div class="nav-btn">
+              <label for="nav-check">
+                <span></span>
+                <span></span>
+                <span></span>
+              </label>
+            </div>
+            <div class="nav-links">
+                
+              <a href="file:///D:/Downloads/flexforce/index.html" >HOME</a>
+              <a href="file:///D:/Downloads/flexforce/product.html" >PRODUCTS</a>
+              <a href="file:///D:/Downloads/flexforce/about.html" >ABOUT</a>
+              <a href="file:///D:/Downloads/flexforce/contact.html">CONTACT</a>
+              <a href="https://jsfiddle.net/user/jo_Geek/"  class="navbutton">SIGN UP</a>
+              <a href="https://jsfiddle.net/user/jo_Geek/"  class="navbutton2">SIGN IN</a>
+            </div>
+          </div>
+     <img src="./public/rectangle-36@2x.png" class="img-fluid " alt="...">
+     <div class="text-overlay">Power your fitness journey with FlexForce.</div>
+     <div class="para-overlay">Our Peak Performance with our premier fitness solutions. Unleash your potential, conquer your goals, and transform your fitness journey</div>
+     <img src="./public/button.png" class="small-image" alt="Small Image">
+
+    </div>
+   
+    <img src="./public/section1.png" class="img-fluid image2" alt="...">
+    <img src="./public/Image1.png" class="img-fluid image2" style="margin-top: 10%;"  alt="...">
+     <div class="container text-center Collection" style="margin-top: 100px;">
+        <div class="row">
+            <div class="col">
+                <div class="card" style="background-color: #f8f8f8;">
+                    <img src="./public/rectangle-42@2x.png" class="card-img-top" alt="...">
+                    <img src="./public/3.png" alt="popular labtops and computers" style="    width:45%;
+                    display: block;
+                    margin: auto;
+                    height: 12%;" />
+                    <div class="home-child23"></div>
+                    <div class="card-body" >
+                        <h5 class="card-title">PowerPulse</h5>
+                        <p class="card-text">Premium accessories for peak fitness performance.</p>
+                        <a href="file:///D:/Downloads/flexforce/powerpulse.html
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        " class="btn btn-primary view">VIEW MORE</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card" style="background-color: #f8f8f8;">
+                    <img src="./public/rectangle-40@2x.png" class="card-img-top" alt="...">
+                    <img src="./public/1.png" alt="popular labtops and computers" style="    width: 30%;
+                    display: block;
+                    margin: auto;
+                    height: 12%;" />
+                    <div class="home-child24"></div>
+                    <div class="card-body">
+                        <h5 class="card-title">Wellness Mystery</h5>
+                        <p class="card-text">Nourish your body, unleash culinary creativity!</p>
+                        <a href="file:///D:/Downloads/flexforce/wellness.html" class="btn btn-primary view">VIEW MORE</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card" style="background-color: #f8f8f8;">
+                    <img src="./public/rectangle-41@2x.png" class="card-img-top" alt="...">
+                    <img src="./public/2.png" alt="popular labtops and computers" style="    width: 30%;
+                    display: block;
+                    margin: auto;
+                    height: 12%;" />
+                    <div class="home-child25"></div>
+                    <div class="card-body">
+                        <h5 class="card-title">NutriFuel</h5>
+                        <p class="card-text">Fuel your gains with our protein supplements, bro!</p>
+                        <a href="file:///D:/Downloads/flexforce/nutrifuel.html" class="btn btn-primary view">VIEW MORE</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="image-container" style="margin-top: 100px;">
+        
+     <img src="./public/rectangle-47@2x.png" class="img-fluid " alt="...">
+     <!-- <div class="text-overlay">Our Story</div>
+     <div><div></div>
+     <div class="para-overlay">Welcome to FlexForce, where passion meets purpose. Our story begins with a deep-rooted commitment to revolutionizing the health and fitness industry. Together, we flex, we force, we conquer.</div> -->
+     <img src="./public/image2.png" class="big-image" alt="Small Image">
+     <img src="./public/button.png" class="small-image" alt="Small Image" style="    left: 47%;;">
+
+    </div>
+
+    
+    
+
+    <img src="./public/images5.png" class="img-fluid image2" style="margin-top: 10%;"  alt="...">
+        
+        
+        
+    <div id="app">
+        <carousel></carousel>
+      </div>
+        
+      
+      <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+      <script type="text/x-template" id="v-carousel">
+        <div class="card-carousel-wrapper">
+          <div class="card-carousel--nav__left" @click="moveCarousel(-1)" :disabled="atHeadOfList"></div>
+    
+          <div class="card-carousel">
+            <div class="card-carousel--overflow-container">
+              <div class="card-carousel-cards" :style="{ transform: 'translateX(' + currentOffset + 'px)' }">
+                <div class="card-carousel--card" v-for="item in items">
+                  <img :src="item.image">
+                  <div class="card-carousel--card--footer">
+                    <p>{{ item.name }}</p>
+                    <p class="tag" v-for="(tag, index) in item.tag" :class="index > 0 ? 'secondary' : ''">{{ tag }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+    
+          <div class="card-carousel--nav__right" @click="moveCarousel(1)" :disabled="atEndOfList"></div>
+        </div>
+      </script>
+      <script>
+        Vue.component("carousel", {
+          template: "#v-carousel",
+          data() {
+            return {
+              currentOffset: 0,
+              windowSize: 3,
+              paginationFactor: 220,
+              items: [
+                { name: 'Book', tag: ["Rs.199"], image: "./public/product1.png" },
+                { name: 'Water Bottle', tag: ["Rs.450"], image: "./public/product2.png" },
+                { name: 'Bags', tag: ["Rs.150"], image: "./public/product3.png" },
+                { name: 'Towel', tag: ["Rs.299", ""], image: "./public/product4.png" },
+                { name: 'Protein Bar', tag: ["Rs.60"], image: "./public/product5.png" },
+                { name: 'Protein Drink', tag: ["Rs.150"], image: "./public/product6.png" },
+                { name: 'Book', tag: ["Rs.199"], image: "./public/product1.png" },
+              ]
+            }
+          },
+          computed: {
+            atEndOfList() {
+              return this.currentOffset <= (this.paginationFactor * -1) * (this.items.length - this.windowSize);
+            },
+            atHeadOfList() {
+              return this.currentOffset === 0;
+            },
+          },
+          methods: {
+            moveCarousel(direction) {
+              if (direction === 1 && !this.atEndOfList) {
+                this.currentOffset -= this.paginationFactor;
+              } else if (direction === -1 && !this.atHeadOfList) {
+                this.currentOffset += this.paginationFactor;
+              }
+            },
+          }
+        });
+    
+        new Vue({
+          el: "#app"
+        });
+      </script>
+    
+    <img src="./public/Button2.png" class="img-fluid image2" style="margin-top: -20px !important;"  alt="...">
+      <div class="section2">
+     
+        <img src="./public/image3.png" class="img-fluid grp2" alt="...">
+                 <!-- <img src="./public/image3.png" class="img-fluid grp2 " alt="..."> -->
+                <img src="./public/image4.png" class="img-fluid grp1 " alt="...">
+          
+     
+        
+        <div class="container text-center" style="   margin-top: 2%; margin-bottom: 10%;">
+            <div class="row">
+              <div class="col">
+                <div class="card" style="width: 18rem;">
+                    <img src="./public/star.png" class="card-img-top stars" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Amet venenatis</h5>
+                      <p class="card-text">Urna hac nam et sagittis elit. Senectus mauris egestas consequat malesuada commodo.</p>
+                     
+                    </div>
+                  </div>
+              </div>
+              <div class="col">
+                <div class="card" style="width: 18rem;">
+                    <img src="./public/star.png" class="card-img-top stars" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Amet venenatis</h5>
+                      <p class="card-text">Urna hac nam et sagittis elit. Senectus mauris egestas consequat malesuada commodo.</p>
+                     
+                    </div>
+                  </div>
+              </div>
+              <div class="col">
+                <div class="card" style="width: 18rem;">
+                    <img src="./public/star.png" class="card-img-top stars" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Amet venenatis</h5>
+                      <p class="card-text">Urna hac nam et sagittis elit. Senectus mauris egestas consequat malesuada commodo.</p>
+                     
+                    </div>
+                  </div>
+              </div>
+            </div>
+          </div>
+    </div>
+    <img src="./public/image6.png" class="img-fluid grp2" style="    display: block;
+    margin: auto;" alt="...">
+    <img src="./public/image7.png" style="margin-bottom: 100px;" class="img-fluid image2" alt="...">
+    <!-- footer -->
+      <!-- Site footer -->
+      <footer class="site-footer">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-12 col-md-6">
+              <h6>LOGO</h6>
+              <p class="text-justify" style="width: 84%;">Discover the power of FlexForce, your ultimate destination for individuals seeking to enhance flexibility, optimize range of motion, and reach peak physical performance.</p>
+            </div>
+  
+            <div class="col-xs-6 col-md-3">
+              <h6>SITEMAP</h6>
+              <ul class="footer-links">
+                <li><a href="file:///D:/Downloads/flexforce/index.html">HOME</a></li>
+                <li><a href="file:///D:/Downloads/flexforce/product.html">PRODUCTS</a></li>
+                <li><a href="file:///D:/Downloads/flexforce/about.html">ABOUT</a></li>
+                <li><a href="file:///D:/Downloads/flexforce/contact.html">CONTACT</a></li>
+            
+              </ul>
+            </div>
+  
+            <div class="col-xs-6 col-md-3">
+              <h6>FOLLOW US</h6>
+              <ul class="footer-links">
+                <li><a href="http://scanfcode.com/about/">Yes, we are social
+                </a></li>
+             
+              </ul>
+            </div>
+          </div>
+          <hr>
+        </div>
+        <div class="container">
+          <div class="row">
+              <div class="col-md-8 col-sm-6 col-xs-12">
+                  <p class="copyright-text">Copyright &copy; 2017 All Rights Reserved by
+                      <a href="#">FlexForce</a>.
+                  </p>
+              </div>
+
+              <div class="col-md-4 col-sm-6 col-xs-12">
+                  <ul class="social-icons">
+                    <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+                    <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+                    <li><a class="dribbble" href="#"><i class="fa fa-dribbble"></i></a></li>
+                    <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>   
+                  </ul>
+                </div>
+          </div>
+      </div>
+        
+  </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
