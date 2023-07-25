@@ -2,7 +2,7 @@
 
 # FLEXFORCE E-commerce Website
 
-Welcome to the FLEXFORCE E-commerce Website repository! This project showcases an e-commerce website I developed from scratch for my client [Client's Name]. The website is designed to provide a seamless shopping experience for users while incorporating custom features to meet the client's specific requirements.
+Welcome to the FLEXFORCE E-commerce Website repository! This project showcases an e-commerce website I developed from scratch for my client Ms Sarita Kumari. The website is designed to provide a seamless shopping experience for users while incorporating custom features to meet the client's specific requirements.
 
 FLEXFORCE E-commerce Website - https://nisha-laur.github.io/FlexForce/
 
@@ -24,7 +24,7 @@ The FLEXFORCE E-commerce Website is built using HTML, CSS, and JavaScript. The w
 To run the project locally on your machine, follow these steps:
 
 1. Clone the repository:
- git clone https://github.com/flexforactivity/FLEXFORCE.
+ git clone [https://github.com/flexforactivity/FLEXFORCE.](https://github.com/nisha-laur/FlexForce.git)
  
 2. Navigate to the project directory:
 cd FLEXFORCE
@@ -41,11 +41,11 @@ Feedback is always welcome! If you encounter any issues, have suggestions for im
 
 ## Client Testimonial
 
-"It was a great experience to work with [Your Name] as my demands were fulfilled, and [he/she/they] did a great job in making it perfect as I was expecting. Appreciated! Keep it up ☺️🙌🏼" - [Client's Name]
+"It was a great experience to work with Nisha as my demands were fulfilled, and she did a great job in making it perfect as I was expecting. Appreciated! Keep it up ☺️🙌🏼" - Sarita Kumari
 
 ## Project Link
 
-To view the live version of the website, click [here](https://flexforactivity.github.io/FLEXFORCE/).
+To view the live version of the website, click [here](https://nisha-laur.github.io/FlexForce/).
 
 ## License
 
