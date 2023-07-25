@@ -4,7 +4,7 @@
 
 Welcome to the FLEXFORCE E-commerce Website repository! This project showcases an e-commerce website I developed from scratch for my client [Client's Name]. The website is designed to provide a seamless shopping experience for users while incorporating custom features to meet the client's specific requirements.
 
-![FLEXFORCE E-commerce Website](link_to_screenshot_or_image)
+![FLEXFORCE E-commerce Website](https://nisha-laur.github.io/FlexForce/)
 
 ## Project Overview
 
