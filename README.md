@@ -24,7 +24,7 @@ The FLEXFORCE E-commerce Website is built using HTML, CSS, and JavaScript. The w
 To run the project locally on your machine, follow these steps:
 
 1. Clone the repository:
- git clone [https://github.com/flexforactivity/FLEXFORCE.](https://github.com/nisha-laur/FlexForce.git)
+ git clone [https://github.com/nisha-laur/FlexForce.git](https://github.com/nisha-laur/FlexForce.git)
  
 2. Navigate to the project directory:
 cd FLEXFORCE
