@@ -7,7 +7,9 @@
     position: relative;
     display: inline-block;
 }
-
+.footer-logo{
+    width:80px;
+}
 .image-container::before {
     content: "";
     position: absolute;
